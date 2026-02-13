@@ -10,7 +10,7 @@ PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
 LUCI_TITLE:=Yet Another Aria2c Web UI
-LUCI_URL:=https://github.com/stangri/luci-app-yaaw/
+LUCI_URL:=https://github.com/mossdef-org/luci-app-yaaw/
 LUCI_DESCRIPTION:=Provides Web UI for Yet Another Aria2c.
 LUCI_DEPENDS:=+luci-base
 
