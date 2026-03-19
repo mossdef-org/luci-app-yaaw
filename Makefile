@@ -13,7 +13,7 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/binux/yaaw.git
 PKG_SOURCE_DATE:=2020-08-02
 PKG_SOURCE_VERSION:=7511684b9af552445d0dd849ac25705b79a5ad0d
-PKG_MIRROR_HASH:=skip
+PKG_MIRROR_HASH:=5f7137460f94f3f3823e2a5ba57452884639ff5f9efea4e42e8e619d20067b90
 
 LUCI_TITLE:=Yet Another Aria2c Web UI
 LUCI_URL:=https://github.com/mossdef-org/luci-app-yaaw/
