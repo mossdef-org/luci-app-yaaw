@@ -1,5 +1,5 @@
---- a/root/www/yaaw/index.html
-+++ b/root/www/yaaw/index.html
+--- a/index.html
++++ b/index.html
 @@ -268,7 +268,7 @@
            <div class="progress-info">
              {{#downloadSpeed}}<span class="download-speed"><i class="icon-download"></i> {{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</span>{{/downloadSpeed}}

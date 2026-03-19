@@ -1,6 +1,4 @@
-Index: luci-app-yaaw/root/www/yaaw/.gitignore
-===================================================================
---- luci-app-yaaw.orig/root/www/yaaw/.gitignore
+--- a/.gitignore
 +++ /dev/null
 @@ -1,7 +0,0 @@
 -*.class
@@ -10,9 +8,7 @@ Index: luci-app-yaaw/root/www/yaaw/.gitignore
 -*.jar
 -*.war
 -*.ear
-Index: luci-app-yaaw/root/www/yaaw/README.md
-===================================================================
---- luci-app-yaaw.orig/root/www/yaaw/README.md
+--- a/README.md
 +++ /dev/null
 @@ -1,46 +0,0 @@
 -YAAW
@@ -61,9 +57,7 @@ Index: luci-app-yaaw/root/www/yaaw/README.md
 -You may get a copy of the GNU Lesser General Public License from http://www.gnu.org/licenses/lgpl.txt
 -
 -favicon.ico by [fangke](http://fangke.im/)
-Index: luci-app-yaaw/root/www/yaaw/TODO.md
-===================================================================
---- luci-app-yaaw.orig/root/www/yaaw/TODO.md
+--- a/TODO.md
 +++ /dev/null
 @@ -1,2 +0,0 @@
 -TODO

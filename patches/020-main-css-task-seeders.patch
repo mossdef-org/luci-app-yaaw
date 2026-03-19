@@ -1,7 +1,5 @@
-Index: luci-app-yaaw/root/www/yaaw/css/main.css
-===================================================================
---- luci-app-yaaw.orig/root/www/yaaw/css/main.css
-+++ luci-app-yaaw/root/www/yaaw/css/main.css
+--- a/css/main.css
++++ b/css/main.css
 @@ -191,7 +191,7 @@
  .task .download-speed,
  .task .upload-speed,
@@ -9,5 +7,5 @@ Index: luci-app-yaaw/root/www/yaaw/css/main.css
 -    margin-right: 8px;
 +    margin-right: 2px;
  }
- 
+
  #other-tasks .task-info {

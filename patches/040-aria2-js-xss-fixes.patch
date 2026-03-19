@@ -1,0 +1,165 @@
+--- a/js/aria2.js
++++ b/js/aria2.js
+@@ -39,14 +39,14 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+     var error_msg = get_error(result);
+
+     $("#main-alert .alert").attr("class", "alert alert-error");
+-    $("#main-alert .alert-msg").html("<strong>Error: </strong>"+error_msg);
++    $("#main-alert .alert-msg").text("Error: "+error_msg);
+     $("#main-alert").show();
+   }
+
+   function main_alert(_class, msg, timeout) {
+     var msg_id = (new Date()).getTime();
+     $("#main-alert .alert").attr("class", "alert "+_class);
+-    $("#main-alert .alert-msg").html(msg);
++    $("#main-alert .alert-msg").text(msg);
+     $("#main-alert").data("msg_id", msg_id).show();
+     if (timeout) {
+       window.setTimeout(function() {
+@@ -283,8 +283,8 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+             $("#add-task-modal").modal('hide');
+             YAAW.add_task.clean();
+           } else {
+-            var error_msg = error.join("<br />");
+-            $("#add-task-alert .alert-msg").html(error_msg);
++            var error_msg = error.join("\n");
++            $("#add-task-alert .alert-msg").text(error_msg);
+             $("#add-task-alert").show();
+             console.warn("add task error: "+error_msg);
+           }
+@@ -368,7 +368,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+
+           if (select_lock) return;
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           var snapshot = new Array();
+@@ -398,7 +398,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+           //console.debug(result);
+
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           var snapshot = new Array();
+@@ -423,7 +423,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+         function(result) {
+           if (select_lock) return;
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           result = ARIA2.status_fix(result.result);
+@@ -449,7 +449,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+           if (select_lock) return;
+
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           result = ARIA2.status_fix(result.result);
+@@ -559,7 +559,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+             main_alert("alert-info", "Paused", 1000);
+             ARIA2.refresh();
+           } else {
+-            main_alert("alert-error", error.join("<br />"), 3000);
++            main_alert("alert-error", error.join("\n"), 3000);
+           }
+         }
+       );
+@@ -581,7 +581,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+             main_alert("alert-info", "Started", 1000);
+             ARIA2.refresh();
+           } else {
+-            main_alert("alert-error", error.join("<br />"), 3000);
++            main_alert("alert-error", error.join("\n"), 3000);
+           }
+         }
+       );
+@@ -603,7 +603,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+             main_alert("alert-info", "Removed", 1000);
+             ARIA2.refresh();
+           } else {
+-            main_alert("alert-error", error.join("<br />"), 3000);
++            main_alert("alert-error", error.join("\n"), 3000);
+           }
+         }
+       );
+@@ -625,7 +625,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+             main_alert("alert-info", "Removed", 1000);
+             ARIA2.tell_stopped();
+           } else {
+-            main_alert("alert-error", error.join("<br />"), 3000);
++            main_alert("alert-error", error.join("\n"), 3000);
+           }
+         }
+       );
+@@ -700,7 +700,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("getGlobalOption", [],
+         function(result) {
+           if (!result.result)
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+
+           result = result.result;
+           $("#aria2-gsetting").empty().append(YAAW.tpl.aria2_global_setting(result));
+@@ -712,7 +712,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("getGlobalOption", [],
+         function(result) {
+           if (!result.result)
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+
+           result = result.result;
+           result["parameterized-uri"] = (result["parameterized-uri"] == "true" ? true : false)
+@@ -725,7 +725,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("changeGlobalOption", [options],
+         function(result) {
+           if (!result.result)
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           else
+             main_alert("alert-success", "Saved", 2000);
+         }
+@@ -736,7 +736,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("getGlobalStat", [],
+         function(result) {
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           result = result.result;
+@@ -763,7 +763,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("getVersion", [],
+         function(result) {
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           $("#global-version").text("Aria2 "+result.result.version || "");
+@@ -775,7 +775,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("tellStatus", [gid],
+         function(result) {
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           }
+
+           result = result.result;
+@@ -809,7 +809,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) v
+       ARIA2.request("changeOption", [gid, options],
+         function(result) {
+           if (!result.result) {
+-            main_alert("alert-error", "<strong>Error: </strong>rpc result error.", 5000);
++            main_alert("alert-error", "Error: rpc result error.", 5000);
+           } else {
+             main_alert("alert-success", "Change Options OK!", 2000);
+           }
